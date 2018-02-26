@@ -20,7 +20,7 @@ The goals / steps of this project are the following:
 [image1]: ./examples/visualization_train.png "Visualization Train"
 [image2]: ./examples/visualization_valid.png "Visualization Validation"
 [image3]: ./examples/visualization_test.png "Visualization Test"
-[image4]: ./examples/equal.png "Histogram Equalization"
+[image4]: ./examples/equalize.png "Histogram Equalization"
 [image5]: ./examples/grayscale.png "Grayscaling"
 [image6]: ./examples/clahe.png "CLAHE"
 [image7]: ./examples/test1.png "Test Images"
@@ -76,11 +76,8 @@ As a first step, I decided to try grayscale and normalization per the prompt.  O
 Here is an example of a traffic sign image after each step:
 
 ![Equalization][image4]
-Equalization
 ![Grayscaling][image5]
-Grayscaling
 ![CLAHE][image6]
-CLAHE
 
 ##### Image Augmentation
 
