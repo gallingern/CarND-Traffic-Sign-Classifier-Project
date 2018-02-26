@@ -17,14 +17,14 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/visualization_train.jpg "Visualization Train"
-[image2]: ./examples/visualization_valid.jpg "Visualization Validation"
-[image3]: ./examples/visualization_test.jpg "Visualization Test"
-[image4]: ./examples/equal.jpg "Histogram Equalization"
-[image5]: ./examples/grayscale.jpg "Grayscaling"
-[image6]: ./examples/clahe.jpg "CLAHE"
-[image7]: ./examples/test1.jpg "Test Images"
-[image8]: ./examples/test2.jpg "Test Images Processed"
+[image1]: ./examples/visualization_train.png "Visualization Train"
+[image2]: ./examples/visualization_valid.png "Visualization Validation"
+[image3]: ./examples/visualization_test.png "Visualization Test"
+[image4]: ./examples/equal.png "Histogram Equalization"
+[image5]: ./examples/grayscale.png "Grayscaling"
+[image6]: ./examples/clahe.png "CLAHE"
+[image7]: ./examples/test1.png "Test Images"
+[image8]: ./examples/test2.png "Test Images Processed"
 
 
 ## Rubric Points
