@@ -66,12 +66,12 @@ While the size if the datasets differs, the distribution is relatively uniform. 
 
 ##### Preprocessing
 
-As a first step, I decided to try grayscale and normalization per the prompt.  On further experimentation and the recommendations from the forums, I ended up choosing the following preprocessing pipeline:
+Before training my model, I used several preprocessing techniques to make it easier for my modal to fit my data.  I first tried the very basic approach of grayscale to reduce the color complexity from 3 to 1, and normalization to center the data around zero.  This improved my model some, but didn't achieve the accuracy I was looking for.  After some research, I discovered the scikit-image exposure library.  This library's functions histogram equalization and contrast limited adaptive histogram equalization (CLAHE) were big improvements.   These functions balance the lighting and enhance details, though when combined with normalization the accuracy was actually lower.  So in the end my preprocessing pipeline was the following:
 
  * Histogram Equalization
  * Grayscale
  * Contrast Limited Adaptive Histogram Equalization (CLAHE)
- * Shuffling
+ * Shuffling (to randomize the data)
 
 Here is an example of a traffic sign image after each step:
 
@@ -194,6 +194,10 @@ Image 1: Speed limit (100km/h) 100%
 | 0.0%					| Vehicles over 3.5 metric tons prohibited		|
 | 0.0%					| Ahead only									|
 
+Certainty: 100%
+
+The model is wrong here, though the top three are all similar looking speed limit signs.
+
 Image 2: Stop 79%
 
 | Probability			| Prediction									| 
@@ -203,6 +207,10 @@ Image 2: Stop 79%
 | 2.1%					| Speed limit (60km/h)							|
 | 1.2%					| Speed limit (80km/h)							|
 | 0.1%					| Speed limit (120km/h)							|
+
+Certainty: 79%
+
+This one is correct and the model is fairly sure, though the next 4 guesses are all signs that are very dissimilar.
 
 Image 3: Bumpy road 100%
 
@@ -214,6 +222,10 @@ Image 3: Bumpy road 100%
 | 0.0%					| No entry										|
 | 0.0%					| Dangerous curve to the right					|
 
+Certainty: 100%
+
+Dead on here, no problems.
+
 Image 4: Road work 0%
 
 | Probability			| Prediction									| 
@@ -223,6 +235,8 @@ Image 4: Road work 0%
 | 0.1%					| Priority road									|
 | 0.1%					| Speed limit (80km/h)							|
 | 0.0%					| Roundabout mandatory							|
+
+Model is 90% certain, but wrong and the correct sign isn't in the top 5, not great.
 
 Image 5: Pedestrians 20%
 
@@ -234,3 +248,6 @@ Image 5: Pedestrians 20%
 | 6.6%					| Beware of ice/snow							|
 | 4.0%					| Wild animals crossing							|
 
+Certainty: 20%
+
+Model's third choice is correct with a low certainty, this is not a great fit.
